@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "clpl"
+version = "0.1.0"
+description = "Learn various programming languages by building command-line applications"
+authors = ["Aditya Gudimella <aditya.gudimella@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.scripts]
+clpl = "clpl.cli:app"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pillow = "^9.4.0"
+cairosvg = "^2.6.0"
+typer = "^0.7.0"
+gitpython = "^3.1.30"
+invoke = "^2.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
