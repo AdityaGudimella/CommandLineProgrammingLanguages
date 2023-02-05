@@ -206,6 +206,7 @@ dependencies, tool directives etc. Let's take a look at the configuration file c
 
 
     ```csharp title="src/HelloWorldApp/Program.cs"
+    namespace HelloWorldApp;
     using System;
 
     public class Program
@@ -624,7 +625,7 @@ so that we ensure that the output of the application is indeed "Hello, World!"
         [Fact]
         public void Test1()
         {
-            // // Arrange
+            // Arrange
             var writer = new StringWriter();  // 3
             Console.SetOut(writer); // 4
 
@@ -718,3 +719,27 @@ so that we ensure that the output of the application is indeed "Hello, World!"
 We can execute the tests as before, and ensure that the test is passing. That's it for
 this chapter. In the next chapter, we'll build an `echo` clone. We'll improve some of
 our tooling to create good command line applications.
+
+## Summary
+
+In this chapter, we created a simple "Hello, World!" application that prints
+"Hello, World!" to the console. We added some tests to the application. Through the
+process we learned how to:
+
+- Create new projects
+- Configure projects
+- Add dependencies
+- Run the application
+- Add tests
+- Run the tests
+
+## Code
+
+You can find the code for this chapter here:
+
+=== "C#"
+    [Chapter 1](../code/csharp/HelloWorld/)
+=== "Python"
+    [Chapter 1](../code/python/hello_world/)
+=== "Rust"
+    [Chapter 1](../code/rust/hello_world/)

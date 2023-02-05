@@ -12,9 +12,9 @@ want to learn in the future. I'm going to use this site to document my progress.
 
 This book currently contains the following programming languages:
 
-- Rust
-- Python
-- C#
+- [Rust](https://www.rust-lang.org/)
+- [Python](https://www.python.org/)
+- [C#](https://dotnet.microsoft.com/languages/csharp)
 
 I plan to add the following languages to this book in the future:
 
