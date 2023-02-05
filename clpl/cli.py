@@ -55,9 +55,12 @@ def install():
 
 
 @app.command()
-def serve():
+def serve(
+    install_deps: bool = typer.Option(False, "-i", "--install", help="Install dependencies first.")
+):
     """Serve the docs."""
-    install()
+    if install_deps:
+        install()
     context = Context()
     with context.cd(str(REPO_ROOT)):
         context.run(f"mkdocs serve --config-file {MKDOCS_INSIDERS_CONFIG_FILE_NAME}")

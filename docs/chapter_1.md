@@ -35,8 +35,8 @@ project.
     community. We can still use the `dotnet` command to help us though.
 
     ```bash title="From parent dir of repo"
-    mkdir -p HelloWorld/src
-    cd HelloWorld
+    mkdir -p hello_world/src
+    cd hello_world
     dotnet new sln
     dotnet new Console -o src/HelloWorldApp
     dotnet sln add src/HelloWorldApp/HelloWorldApp.csproj
@@ -48,7 +48,7 @@ project.
     and I'd highly recommend it.
 
     ```bash title="From parent dir of repo"
-    poetry new hello
+    poetry new hello_world
     ```
 
 === "Rust"
@@ -56,7 +56,7 @@ project.
     manager and build tool.
 
     ```bash title="From parent dir of repo"
-    cargo new --bin hello
+    cargo new --bin hello_world
     ```
 
 #### What just happened?
@@ -75,13 +75,13 @@ structure of the project.
 
 <!-- trunk-ignore(markdownlint/MD046) -->
 ```bash title="From parent dir of repo"
-tree hello
+tree hello_world
 ```
 
 === "C#"
 
     ```bash title="Output"
-    HelloWorld
+    hello_world
     ├── HelloWorld.sln
     └── src
         └── HelloWorldApp
@@ -105,9 +105,9 @@ tree hello
 === "Python"
 
     ```bash title="Output"
-    hello
+    hello_world
     ├── README.md
-    ├── hello
+    ├── hello_world
     │   └── __init__.py
     ├── pyproject.toml
     └── tests
@@ -118,7 +118,7 @@ tree hello
 === "Rust"
 
     ```bash title="Output"
-    hello
+    hello_world
     ├── Cargo.toml
     └── src
         └── main.rs
@@ -158,15 +158,15 @@ dependencies, tool directives etc. Let's take a look at the configuration file c
 
     ```toml title="pyproject.toml"
     [tool.poetry]
-    name = "hello"
+    name = "hello-world"
     version = "0.1.0"
     description = ""
     authors = ["Aditya Gudimella <aditya.gudimella@gmail.com>"]
     readme = "README.md"
+    packages = [{include = "hello_world"}]
 
-    [tool.poetry.dependencies]  # (1)!
-    python = "^3.10"  # (2)!
-
+    [tool.poetry.dependencies]
+    python = "^3.10"
 
     [build-system]
     requires = ["poetry-core"]
@@ -184,7 +184,7 @@ dependencies, tool directives etc. Let's take a look at the configuration file c
 
     ```toml title="Cargo.toml"
     [package]
-    name = "hello"
+    name = "hello_world"
     version = "0.1.0"
     edition = "2021"
 
@@ -232,9 +232,9 @@ dependencies, tool directives etc. Let's take a look at the configuration file c
     require a `main` method or a `Program` class. Python will execute any code that is
     in the file. If you're making a command line script, you can define entry points to
     your application by defining it in the `pyproject.toml` file. We'll see that in
-    action once we get to actually executing the programs.
+    action in later chapters.
 
-    ```python title="hello/__init__.py"
+    ```python title="hello_world/__init__.py"
     print("Hello, World!")  # (1)!
     ```
 
@@ -280,7 +280,7 @@ repository.
 === "Python"
 
     ```bash title="From repo root"
-    poetry run python hello/__init__.py
+    poetry run python hello_world/__init__.py
     ```
 
     This will run the program. The output will be similar to this:
@@ -308,7 +308,7 @@ compiled into an executable or byte code.
 
 <!-- trunk-ignore(markdownlint/MD046) -->
 ```bash title="From parent dir of repo"
-tree hello
+tree hello_world
 ```
 
 === "C#"
@@ -317,7 +317,7 @@ tree hello
     CLR.
 
     ```bash title="Output"
-    hello
+    hello_world
     ├── HelloWorld.sln
     └── src
         └── HelloWorldApp
@@ -343,7 +343,7 @@ tree hello
     directly executed by the OS. Unlike C#, rust has no runtime.
 
     ```bash title="Output"
-    hello
+    hello_world
     ├── Cargo.lock
     ├── Cargo.toml
     ├── src
@@ -352,7 +352,7 @@ tree hello
         ├── ...
         └── debug
             ├── ...
-            ├── hello
+            ├── hello_world
             └── ...
     ```
 
@@ -363,7 +363,7 @@ this.
 
 <!-- trunk-ignore(markdownlint/MD046) -->
 ```bash title="From parent dir of repo"
-tree hello
+tree hello_world
 ```
 
 === "C#"
@@ -379,7 +379,7 @@ tree hello
     This adds a new project named hello in the `tests` folder.
 
     ```bash title="tree"
-    hello
+    hello_world
     ├── ...
     ├── obj
     │   └── ...
@@ -443,7 +443,7 @@ tree hello
     `pyproject.toml` file has also been updated to indicate that pytest is a dependency
     for this project.
 
-    ```toml title="hello/pyproject.toml"
+    ```toml title="hello_world/pyproject.toml"
     [tool.poetry]
     ...
 
@@ -458,16 +458,19 @@ tree hello
     tests to this file. Execute the following command.
 
     ```bash title="From repo root"
-    touch tests/test_hello.py
+    touch tests/test_hello_world.py
     ```
 
     ```bash title="tree"
-    hello
+    hello_world
     ├── ...
     └── tests
         ├── __init__.py
-        └── test_hello.py
+        └── test_hello_world.py
     ```
+
+    IMPORTANT:
+        By default pytest looks for files prefixed with `test_` recursively from the directory where it is run.
 
 === "Rust"
 
@@ -479,7 +482,7 @@ tree hello
     ```
 
     ```bash title="tree"
-    hello
+    hello_world
     ├── ...
     ├── src
     │   └── ...
@@ -488,7 +491,20 @@ tree hello
 
     Rust has a builtin functionality for [testing](https://doc.rust-lang.org/book/ch11-00-testing.html).
     We will use this functionality to write our tests. We will create a file called
-    `test_hello.py` in the `tests` dir we created above.
+    `test_hello_world.rs` in the `tests` dir we created above.
+
+    ```bash title="From repo root"
+    touch tests/test_hello_world.rs
+    ```
+
+    ```bash title="tree"
+    hello_world
+    ├── ...
+    ├── src
+    │   └── ...
+    └── tests
+        └── test_hello_world.rs
+    ```
 
 ### Writing our first test
 
@@ -540,7 +556,7 @@ Let's add the actual tests now.
 
 === "Rust"
 
-    ```rust title="tests/test_hello.rs"
+    ```rust title="tests/test_hello_world.rs"
     #[test]  // 2
     fn hello() {  // 1
         assert!(true);  // 3
@@ -574,7 +590,7 @@ Now that we have written our tests, let's run them.
 === "Python"
 
     ```bash title="From repo root"
-    pytest
+    poetry run pytest
     ```
 
     You should see the following lines as part of the output.
@@ -651,7 +667,7 @@ so that we ensure that the output of the application is indeed "Hello, World!"
 
     Let's modify our source code a little so that it's easier to test.
 
-    ```python title="hello/__init__.py"
+    ```python title="hello_world/__init__.py"
     def hello_world():
         print("Hello, World!")
 
@@ -666,7 +682,7 @@ so that we ensure that the output of the application is indeed "Hello, World!"
     Now we have a function that we can actually test.
 
     ```python title="tests/test_hello.py"
-    from hello import hello_world  # 1
+    from hello_world import hello_world  # 1
 
     def test_hello(capsys):  # 5
         hello_world()  # 2
@@ -688,12 +704,12 @@ so that we ensure that the output of the application is indeed "Hello, World!"
        for more details on fixtures.
 === "Rust"
 
-    ```rust title="tests/test_hello.rs"
+    ```rust title="tests/test_hello_world.rs"
     use std::process::Command;  // 1
 
     #[test]
     fn hello() {
-        let mut cmd = Command::new("./target/debug/hello");  // 2
+        let mut cmd = Command::new("./target/debug/hello_world");  // 2
         let result = cmd.output().unwrap();  // 3
         assert_eq!(String::from_utf8(result.stdout).unwrap(), "Hello, world!\n"); // 4
     }
@@ -738,8 +754,8 @@ process we learned how to:
 You can find the code for this chapter here:
 
 === "C#"
-    [Chapter 1](../code/csharp/HelloWorld/)
+    [Chapter 1](https://github.com/AdityaGudimella/CommandLineProgrammingLanguages/blob/main/code/csharp/hello_world)
 === "Python"
-    [Chapter 1](../code/python/hello_world/)
+    [Chapter 1](https://github.com/AdityaGudimella/CommandLineProgrammingLanguages/blob/main/code/python/hello_world)
 === "Rust"
-    [Chapter 1](../code/rust/hello_world/)
+    [Chapter 1](https://github.com/AdityaGudimella/CommandLineProgrammingLanguages/blob/main/code/rust/hello_world)
