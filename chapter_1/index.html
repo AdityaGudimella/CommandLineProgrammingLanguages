@@ -1,0 +1,1327 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11+insiders-4.29.0">
+    
+    
+      
+        <title>Chapter 1 - Hello World - Command-Line Programming Languages</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.b6d2c4d8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="yellow" data-md-color-accent="yellow">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hello-world" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Command-Line Programming Languages" class="md-header__button md-logo" aria-label="Command-Line Programming Languages" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Command-Line Programming Languages
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 1 - Hello World
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="prefers-color-scheme: dark" data-md-color-scheme="slate" data-md-color-primary="yellow" data-md-color-accent="yellow"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="prefers-color-scheme: light" data-md-color-scheme="default" data-md-color-primary="yellow" data-md-color-accent="yellow"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Command-Line Programming Languages" class="md-nav__button md-logo" aria-label="Command-Line Programming Languages" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Command-Line Programming Languages
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - Hello World
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - Hello World
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-and-running-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing and running the code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing and running the code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating the project
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating the project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-just-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What just happened?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The configuration file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the program
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-executable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The executable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-and-running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing and running tests
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing and running tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#writing-our-first-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing our first test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-the-tests-to-test-the-output-in-the-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modifying the tests to test the output in the command line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-and-running-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing and running the code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing and running the code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating the project
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating the project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-just-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What just happened?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The configuration file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the program
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-executable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The executable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-and-running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing and running tests
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing and running tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#writing-our-first-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing our first test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-the-tests-to-test-the-output-in-the-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modifying the tests to test the output in the command line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hello-world">Hello World</h1>
+<h2 id="introduction">Introduction</h2>
+<p>In this chapter, we learn how to organize, run and test a program. The book uses a Unix
+platform to demonstrate the concepts, and so will I. I'm using Ubuntu 22.04. I do expect
+some familiarity with Unix for you to be able to follow along with this "book".</p>
+<p>You will learn how to do the following:</p>
+<ul>
+<li>Create an executable / command line script</li>
+<li>Initialize a new project</li>
+<li>Include external libraries / projects as dependencies</li>
+<li>Interpret the exit status of the program</li>
+<li>Use common system commands and options</li>
+<li>Write <code>&lt;insert programming language&gt;</code> versions of <code>true</code> and <code>false</code> programs</li>
+<li>Organize, write and run tests</li>
+</ul>
+<h2 id="writing-and-running-the-code">Writing and running the code</h2>
+<p>The first program we will write is the classic "Hello, World!" program. This program
+prints "Hello, World!" to the screen. To do that, we will create a new project.</p>
+<h3 id="creating-the-project">Creating the project</h3>
+<p>We can create a new project manually, but it's easier to use a tool to do it for us.
+Most languages have a package manager and build tool that can create a new project for
+us. We'll use the package manager and build tool for each language to create a new
+project.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C#</label><label for="__tabbed_1_2">Python</label><label for="__tabbed_1_3">Rust</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>We could use the <code>dotnet new</code> command to create our project, but the directory
+structure it creates does not follow the best practices suggested by the .Net
+community. We can still use the <code>dotnet</code> command to help us though.</p>
+<div class="highlight"><span class="filename">From parent dir of repo</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>HelloWorld/src
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>HelloWorld
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>dotnet<span class="w"> </span>new<span class="w"> </span>sln
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>dotnet<span class="w"> </span>new<span class="w"> </span>Console<span class="w"> </span>-o<span class="w"> </span>src/HelloWorldApp
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>dotnet<span class="w"> </span>sln<span class="w"> </span>add<span class="w"> </span>src/HelloWorldApp/HelloWorldApp.csproj
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>To create a new Python project, we use the <code>poetry</code> command. Poetry is <em>a</em> Python
+package manager and build tool. I say it is "a" python package manager instead of
+"the" because python has more than one package managers. Poetry is my favorite
+and I'd highly recommend it.</p>
+<div class="highlight"><span class="filename">From parent dir of repo</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>poetry<span class="w"> </span>new<span class="w"> </span>hello
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>To create a new Rust project, we use the <code>cargo</code> command. Cargo is the Rust package
+manager and build tool.</p>
+<div class="highlight"><span class="filename">From parent dir of repo</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cargo<span class="w"> </span>new<span class="w"> </span>--bin<span class="w"> </span>hello
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="what-just-happened">What just happened?</h4>
+<p>When we create a new project, we are telling the package manager and build tool to
+create a new project with the name <code>hello</code>. The package manager and build tool will
+create a new directory with the name <code>hello</code> and create a new project in that
+directory.</p>
+<h3 id="directory-structure">Directory structure</h3>
+<p>Let's take a look at the directory structure of the project.</p>
+<p>We can use the <a href="https://linux.die.net/man/1/tree">tree</a> command to see the directory
+structure of the project.</p>
+<!-- trunk-ignore(markdownlint/MD046) -->
+<div class="highlight"><span class="filename">From parent dir of repo</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>tree<span class="w"> </span>hello
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">C#</label><label for="__tabbed_2_2">Python</label><label for="__tabbed_2_3">Rust</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>HelloWorld
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>├──<span class="w"> </span>HelloWorld.sln
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>└──<span class="w"> </span>src
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span>└──<span class="w"> </span>HelloWorldApp
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span>├──<span class="w"> </span>Program.cs
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span>├──<span class="w"> </span>HelloWorldApp.csproj
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span>└──<span class="w"> </span>obj
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span>├──<span class="w"> </span>HelloWorldApp.csproj.nuget.dgspec.json
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span>├──<span class="w"> </span>HelloWorldApp.csproj.nuget.g.props
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span>├──<span class="w"> </span>HelloWorldApp.csproj.nuget.g.targets
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">            </span>├──<span class="w"> </span>project.assets.json
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">            </span>└──<span class="w"> </span>project.nuget.cache
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="m">3</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">8</span><span class="w"> </span>file
+</code></pre></div>
+<p>The directory structure created by the <code>dotnet new</code> command does not follow the
+best practices followed by the <code>dotnet</code> community. See Scott Hanselman's
+<a href="http://www.hanselman.com/blog/how-do-you-organize-your-code">blog post</a> on defining
+the directory structure for your projects.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>hello
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>├──<span class="w"> </span>README.md
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>├──<span class="w"> </span>hello
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>│<span class="w">   </span>└──<span class="w"> </span>__init__.py
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>├──<span class="w"> </span>pyproject.toml
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>└──<span class="w"> </span>tests
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span>└──<span class="w"> </span>__init__.py
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="m">2</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">4</span><span class="w"> </span>files
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>hello
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>├──<span class="w"> </span>Cargo.toml
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>└──<span class="w"> </span>src
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span>└──<span class="w"> </span>main.rs
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="m">1</span><span class="w"> </span>directory,<span class="w"> </span><span class="m">2</span><span class="w"> </span>files
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>While each language has a different directory structure, there are a few similarities
+between them.</p>
+<ul>
+<li>Each project has a main file where the code goes.</li>
+<li>Each project has a configuration file that contains the project information and
+  dependencies.</li>
+</ul>
+<h3 id="the-configuration-file">The configuration file</h3>
+<p>The configuration file typically contains information like project metadata, package
+dependencies, tool directives etc. Let's take a look at the configuration file created.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">C#</label><label for="__tabbed_3_2">Python</label><label for="__tabbed_3_3">Rust</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">src/HelloWorldApp/HelloWorldApp.csproj</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">&lt;OutputType&gt;</span>Exe<span class="nt">&lt;/OutputType&gt;</span><span class="w">  </span><span class="cm">&lt;!-- (1)! --&gt;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net6.0<span class="nt">&lt;/TargetFramework&gt;</span><span class="w">  </span><span class="cm">&lt;!-- (2)! --&gt;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nt">&lt;/PropertyGroup&gt;</span>
+</code></pre></div>
+<ol>
+<li>This tells the build tool that the project is an executable.</li>
+<li>The dotnet version shown here will depend on the dotnet version installed on your
+   system.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">pyproject.toml</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">[tool.poetry]</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0.1.0&quot;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Aditya Gudimella &lt;aditya.gudimella@gmail.com&gt;&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;README.md&quot;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">[</span><span class="n">tool</span><span class="p">.</span><span class="n">poetry</span><span class="p">.</span><span class="n">dependencies</span><span class="p">]</span><span class="w">  </span><span class="c1"># (1)!</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;^3.10&quot;</span><span class="w">  </span><span class="c1"># (2)!</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="k">[build-system]</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;poetry-core&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;poetry.core.masonry.api&quot;</span>
+</code></pre></div>
+<ol>
+<li>This is where you list the libraries that your application depends on.</li>
+<li>This specifies the python versions on which this application will be supported.
+   The version on your system may be different based on the python version present
+   on your system.</li>
+</ol>
+<p>The <code>^3.10</code> notation means that our application will support python versions "3.10"
+and above.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Cargo.toml</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">[package]</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0.1.0&quot;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">edition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2021&quot;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">[</span><span class="n">dependencies</span><span class="p">]</span><span class="w">  </span><span class="c1"># (1)!</span>
+</code></pre></div>
+<ol>
+<li>This is where you list the libraries that your application depends on.</li>
+</ol>
+</div>
+</div>
+</div>
+<h3 id="the-code">The code</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">C#</label><label for="__tabbed_4_2">Python</label><label for="__tabbed_4_3">Rust</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The entry point to a C# program is the <code>Main</code> method of a <code>Program</code> class. The
+<code>Main</code> method is the first method that is executed when the program is run. The
+<code>Program</code> class is the first class that is loaded when the program is run. Any
+application must contain at most one <code>Main</code> method. <code>dotnet</code> will raise an error
+if you try to create a project with more than one <code>Main</code> method.</p>
+<div class="highlight"><span class="filename">src/HelloWorldApp/Program.cs</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">{</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// (1)!</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>The <code>;</code> at the end of the line is used to terminate a statement in C#.</li>
+</ol>
+<p><code>Console.WriteLine</code> is a method that is used to print a line to the console. This is
+part of the <code>System</code> namespace. The <code>using</code> statement is used to import namespaces
+into the program.</p>
+<p>In C# 9.0 and greater, you can take advantage of Top-Level Statements. This means
+you can omit the <code>Program</code> class and the <code>Main</code> method. You can read more about
+Top-Level Statements <a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements">here</a>.</p>
+</div>
+<div class="tabbed-block">
+<p>The entry point to a Python program is the file that is executed. Python doesn't
+require a <code>main</code> method or a <code>Program</code> class. Python will execute any code that is
+in the file. If you're making a command line script, you can define entry points to
+your application by defining it in the <code>pyproject.toml</code> file. We'll see that in
+action once we get to actually executing the programs.</p>
+<div class="highlight"><span class="filename">hello/__init__.py</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>  <span class="c1"># (1)!</span>
+</code></pre></div>
+<ol>
+<li>Notice the lack of an ending <code>;</code> in Python. Python uses indentation and new lines
+   to determine the scope of a block of code.</li>
+</ol>
+<p>The <code>print</code> function in python is used to print text to STDOUT. It adds a new line
+character at the end of the line, but this can be overriden.</p>
+</div>
+<div class="tabbed-block">
+<p>The entry point to a Rust program is the <code>main</code> function. Rust doesn't require a
+<code>Program</code> class. The <code>main</code> function is the first function that is executed when the
+program is run.</p>
+<div class="highlight"><span class="filename">src/main.rs</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// (1)!</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>The <code>;</code> at the end of the line is used to terminate a statement in Rust.</li>
+</ol>
+<p><code>println!</code> is a macro. It prints text to STDOUT. It adds a new line character at
+the end of the line.</p>
+</div>
+</div>
+</div>
+<h3 id="running-the-program">Running the program</h3>
+<p>Now that we have a program, let's run it. The commands are run from the root of the
+repository.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">C#</label><label for="__tabbed_5_2">Python</label><label for="__tabbed_5_3">Rust</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">From repo root</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>dotnet<span class="w"> </span>run<span class="w"> </span>--project<span class="w"> </span>src/HelloWorldApp/HelloWorldApp.csproj
+</code></pre></div>
+<p>This will build the project and run the executable. The output will be similar to
+this:</p>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Hello,<span class="w"> </span>World!
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">From repo root</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>hello/__init__.py
+</code></pre></div>
+<p>This will run the program. The output will be similar to this:</p>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Hello,<span class="w"> </span>World!
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">From repo root</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>cargo<span class="w"> </span>run
+</code></pre></div>
+<p>This will build the project and run the executable. The output will be similar to
+this:</p>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Hello,<span class="w"> </span>World!
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="the-executable">The executable</h3>
+<p>When you run the program, if the language is a compiled language, the program will be
+compiled into an executable or byte code.</p>
+<!-- trunk-ignore(markdownlint/MD046) -->
+<div class="highlight"><span class="filename">From parent dir of repo</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>tree<span class="w"> </span>hello
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">C#</label><label for="__tabbed_6_2">Python</label><label for="__tabbed_6_3">Rust</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>C# is a compiled and managed language. The compiled code is run by a runtime called
+CLR.</p>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>hello
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>├──<span class="w"> </span>HelloWorld.sln
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>└──<span class="w"> </span>src
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span>└──<span class="w"> </span>HelloWorldApp
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">        </span>├──<span class="w"> </span>bin
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">        </span>│<span class="w">   </span>└──<span class="w"> </span>Debug
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">        </span>│<span class="w">       </span>└──<span class="w"> </span>net6.0
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">        </span>│<span class="w">           </span>├──<span class="w"> </span>HelloWorldApp
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">        </span>│<span class="w">           </span>├──<span class="w"> </span>HelloWorldApp.deps.json
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">        </span>│<span class="w">           </span>├──<span class="w"> </span>HelloWorldApp.dll
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">        </span>│<span class="w">           </span>├──<span class="w"> </span>HelloWorldApp.pdb
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">        </span>│<span class="w">           </span>└──<span class="w"> </span>HelloWorldApp.runtimeconfig.json
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">        </span>└──<span class="w"> </span>...
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Python is an compiled and interpreted language. The code is compiled to bytecode,
+and the resulting bytecode is interpreted by the python interpreter. For larger
+applications, you will typically see <code>*.pyc</code> files generated after the first time
+the program is run. For our program, there is no change to the directory structure.</p>
+</div>
+<div class="tabbed-block">
+<p>Rust is a compiled and unmanaged language. The code is compiled to a binary that is
+directly executed by the OS. Unlike C#, rust has no runtime.</p>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>hello
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>├──<span class="w"> </span>Cargo.lock
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>├──<span class="w"> </span>Cargo.toml
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>├──<span class="w"> </span>src
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>│<span class="w">   </span>└──<span class="w"> </span>main.rs
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>└──<span class="w"> </span>target
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">    </span>├──<span class="w"> </span>...
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">    </span>└──<span class="w"> </span>debug
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">        </span>├──<span class="w"> </span>...
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">        </span>├──<span class="w"> </span>hello
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">        </span>└──<span class="w"> </span>...
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="writing-and-running-tests">Writing and running tests</h2>
+<p>Let's create some directories to hold our tests. Our directory structure now looks like
+this.</p>
+<!-- trunk-ignore(markdownlint/MD046) -->
+<div class="highlight"><span class="filename">From parent dir of repo</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>tree<span class="w"> </span>hello
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">C#</label><label for="__tabbed_7_2">Python</label><label for="__tabbed_7_3">Rust</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>We will create a <code>tests</code> directory where we will put our tests.</p>
+<div class="highlight"><span class="filename">From repo root</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>mkdir<span class="w"> </span>tests
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>dotnet<span class="w"> </span>new<span class="w"> </span>xunit<span class="w"> </span>-o<span class="w"> </span>tests/HelloWorldTests
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>dotnet<span class="w"> </span>sln<span class="w"> </span>add<span class="w"> </span>tests/HelloWorldTests/HelloWorldTests.csproj
+</code></pre></div>
+<p>This adds a new project named hello in the <code>tests</code> folder.</p>
+<div class="highlight"><span class="filename">tree</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>hello
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>├──<span class="w"> </span>...
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>├──<span class="w"> </span>obj
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>│<span class="w">   </span>└──<span class="w"> </span>...
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>├──<span class="w"> </span>src
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>│<span class="w">   </span>└──<span class="w"> </span>...
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>└──<span class="w"> </span>tests
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">    </span>└──<span class="w"> </span>HelloWorldTests
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">        </span>├──<span class="w"> </span>UnitTest1.cs
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="w">        </span>├──<span class="w"> </span>Usings.cs
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="w">        </span>├──<span class="w"> </span>HelloWorldTests.csproj
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="w">        </span>└──<span class="w"> </span>obj
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="w">            </span>└──<span class="w"> </span>...
+</code></pre></div>
+<p>Specifying the project type as <code>xunit</code> when running <code>dotnet new xunit ...</code> results
+in a slightly different project configuration file.</p>
+<div class="highlight"><span class="filename">hello/tests/tests.csproj</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net6.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">    </span><span class="nt">&lt;IsPackable&gt;</span>false<span class="nt">&lt;/IsPackable&gt;</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="nt">&lt;/PropertyGroup&gt;</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.NET.Test.Sdk&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;17.1.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;xunit&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;2.4.1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- (1)! --&gt;</span>
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;xunit.runner.visualstudio&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;2.4.3&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="w">    </span><span class="nt">&lt;IncludeAssets&gt;</span>runtime;<span class="w"> </span>build;<span class="w"> </span>native;<span class="w"> </span>contentfiles;<span class="w"> </span>analyzers;<span class="w"> </span>buildtransitive<span class="nt">&lt;/IncludeAssets&gt;</span>
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="w">    </span><span class="nt">&lt;PrivateAssets&gt;</span>all<span class="nt">&lt;/PrivateAssets&gt;</span>
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="w">    </span><span class="nt">&lt;/PackageReference&gt;</span>
+<a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a><span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;coverlet.collector&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;3.1.2&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="w">    </span><span class="nt">&lt;IncludeAssets&gt;</span>runtime;<span class="w"> </span>build;<span class="w"> </span>native;<span class="w"> </span>contentfiles;<span class="w"> </span>analyzers;<span class="w"> </span>buildtransitive<span class="nt">&lt;/IncludeAssets&gt;</span>
+<a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a><span class="w">    </span><span class="nt">&lt;PrivateAssets&gt;</span>all<span class="nt">&lt;/PrivateAssets&gt;</span>
+<a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a><span class="w">    </span><span class="nt">&lt;/PackageReference&gt;</span>
+<a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a><span class="nt">&lt;/ItemGroup&gt;</span>
+<a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a>
+<a id="__codelineno-25-24" name="__codelineno-25-24" href="#__codelineno-25-24"></a><span class="nt">&lt;/Project&gt;</span>
+</code></pre></div>
+<ol>
+<li>We see some additional project dependencies here, <code>xunit</code> being one of them.</li>
+</ol>
+<p>We will add tests to the <code>tests/hello/UnitTest1.cs</code> file.</p>
+</div>
+<div class="tabbed-block">
+<p>Poetry has already created a tests directory for us. Python has a builtin library
+called unit tests to run tests, but there is a better tool for the job. It's called
+<a href="https://docs.pytest.org/">pytest</a>. We can add it to our project by running the
+following command from within the repository.</p>
+<div class="highlight"><span class="filename">From repo root</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>pytest
+</code></pre></div>
+<p>This will install pytest and its dependencies into our active environment. Our
+<code>pyproject.toml</code> file has also been updated to indicate that pytest is a dependency
+for this project.</p>
+<div class="highlight"><span class="filename">hello/pyproject.toml</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">[tool.poetry]</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="p">...</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="k">[tool.poetry.dependencies]</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;^3.10&quot;</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="n">pytest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;^7.2.1&quot;</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="p">...</span>
+</code></pre></div>
+<p>Let's create a new file called <code>test_hello.py</code> in the tests dir. We will add our
+tests to this file. Execute the following command.</p>
+<div class="highlight"><span class="filename">From repo root</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>touch<span class="w"> </span>tests/test_hello.py
+</code></pre></div>
+<div class="highlight"><span class="filename">tree</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>hello
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>├──<span class="w"> </span>...
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>└──<span class="w"> </span>tests
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span>├──<span class="w"> </span>__init__.py
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">    </span>└──<span class="w"> </span>test_hello.py
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>We will create a <code>tests</code> directory where we will put our tests. This directory lives
+at the same level as the <code>src</code> directory.</p>
+<div class="highlight"><span class="filename">From repo root</span><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>mkdir<span class="w"> </span>tests
+</code></pre></div>
+<div class="highlight"><span class="filename">tree</span><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>hello
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>├──<span class="w"> </span>...
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>├──<span class="w"> </span>src
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>│<span class="w">   </span>└──<span class="w"> </span>...
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>└──<span class="w"> </span>tests
+</code></pre></div>
+<p>Rust has a builtin functionality for <a href="https://doc.rust-lang.org/book/ch11-00-testing.html">testing</a>.
+We will use this functionality to write our tests. We will create a file called
+<code>test_hello.py</code> in the <code>tests</code> dir we created above.</p>
+</div>
+</div>
+</div>
+<h3 id="writing-our-first-test">Writing our first test</h3>
+<p>Let's add the actual tests now.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">C#</label><label for="__tabbed_8_2">Python</label><label for="__tabbed_8_3">Rust</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">tests/hello/UnitTest1.cs</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">Xunit</span><span class="p">;</span><span class="w">  </span><span class="c1">// 1</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">hello</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="p">{</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UnitTest1</span><span class="w">  </span><span class="c1">// 2</span>
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="w">        </span><span class="na">[Fact]</span><span class="w">  </span><span class="c1">// 4</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Test1</span><span class="p">()</span><span class="w">  </span><span class="c1">// 3</span>
+<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="w">            </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// 5</span>
+<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>We have imported the <code>Xunit</code> library.</li>
+<li>We have created a class called <code>UnitTest1</code>.</li>
+<li>We have created a method called <code>Test1</code> which contains the actual test.</li>
+<li>The <code>[Fact]</code> attribute is used to mark it as a test method.</li>
+<li>The test method creates an assertion to check that <code>0 == 0</code>. We're starting
+   simple here.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">tests/test_hello.py</span><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="k">def</span> <span class="nf">test_hello</span><span class="p">():</span>  <span class="c1"># 1 # (1)!</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>    <span class="k">assert</span> <span class="kc">True</span>  <span class="c1"># 2</span>
+</code></pre></div>
+<ol>
+<li>The test needs to named as <code>test_...</code> for <code>pytest</code> to understand that it is a
+   test it needs to run.</li>
+</ol>
+<p>Note that pytest doesn't have any annotations to discover tests that it needs to
+run. Any file named <code>test_...</code> will be checked for tests. If that file contains
+a function with the name starting with <code>test_</code> the function will be picked up as
+a test that needs to be run.</p>
+<ol>
+<li>We create a function which will contain the testing logic. We could put the test
+   in a class too, but it's not necessary.</li>
+<li>Since we just <code>assert True</code> the test will always pass. We're starting simple.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">tests/test_hello.rs</span><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="cp">#[test]</span><span class="w">  </span><span class="c1">// 2</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="k">fn</span> <span class="nf">hello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 1</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">    </span><span class="fm">assert!</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">  </span><span class="c1">// 3</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>We define a function named <code>hello</code> to hold our test logic.</li>
+<li>We need to annotate the function with the <code>#[test]</code> attribute to tell Rust to
+   run this function when testing.</li>
+<li><code>assert!</code> is a macro. Since we're just <code>assert!(true)</code>, the test will always pass.
+   We're starting simple here.</li>
+</ol>
+</div>
+</div>
+</div>
+<h3 id="running-the-tests">Running the tests</h3>
+<p>Now that we have written our tests, let's run them.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">C#</label><label for="__tabbed_9_2">Python</label><label for="__tabbed_9_3">Rust</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">From repo root</span><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>dotnet<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+<p>You should see the following lines as part of the output.</p>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Starting<span class="w"> </span><span class="nb">test</span><span class="w"> </span>execution,<span class="w"> </span>please<span class="w"> </span>wait...
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>A<span class="w"> </span>total<span class="w"> </span>of<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>files<span class="w"> </span>matched<span class="w"> </span>the<span class="w"> </span>specified<span class="w"> </span>pattern.
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>Passed!<span class="w">  </span>-<span class="w"> </span>Failed:<span class="w">     </span><span class="m">0</span>,<span class="w"> </span>Passed:<span class="w">     </span><span class="m">1</span>,<span class="w"> </span>Skipped:<span class="w">     </span><span class="m">0</span>,<span class="w"> </span>Total:<span class="w">     </span><span class="m">1</span>,<span class="w"> </span>Duration:<span class="w"> </span>&lt;<span class="w"> </span><span class="m">1</span><span class="w"> </span>ms
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">From repo root</span><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>pytest
+</code></pre></div>
+<p>You should see the following lines as part of the output.</p>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>tests/test_hello.py<span class="w"> </span>.<span class="w">                                                  </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="o">=============================</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.01s<span class="w"> </span><span class="o">==============================</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">From repo root</span><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>cargo<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+<p>You should see the following lines as part of the output.</p>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>running<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="nb">test</span><span class="w"> </span>hello<span class="w"> </span>...<span class="w"> </span>ok
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="nb">test</span><span class="w"> </span>result:<span class="w"> </span>ok.<span class="w"> </span><span class="m">1</span><span class="w"> </span>passed<span class="p">;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>failed<span class="p">;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>ignored<span class="p">;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>measured<span class="p">;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>filtered<span class="w"> </span>out<span class="p">;</span><span class="w"> </span>finished<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.00s
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="modifying-the-tests-to-test-the-output-in-the-command-line">Modifying the tests to test the output in the command line</h3>
+<p>Our test currently passes regardless of whether our program is correct or not. We need
+to change it so that it's testing the actual application logic. Let's modify the tests
+so that we ensure that the output of the application is indeed "Hello, World!"</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">C#</label><label for="__tabbed_10_2">Python</label><label for="__tabbed_10_3">Rust</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">From repo root</span><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>dotnet<span class="w"> </span>add<span class="w"> </span>tests/HelloWorldTests/HelloWorldTests.csproj<span class="w"> </span>reference<span class="w"> </span>src/HelloWorldApp/HelloWorldApp.csproj
+</code></pre></div>
+<div class="highlight"><span class="filename">tests/HelloWorldTests/UnitTest1.cs</span><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">HelloWorldApp</span><span class="p">;</span><span class="w">  </span><span class="c1">// 1</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">Xunit</span><span class="p">;</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">HelloWorldTests</span><span class="p">;</span>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UnitTest1</span>
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="p">{</span>
+<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="w">    </span><span class="na">[Fact]</span>
+<a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Test1</span><span class="p">()</span>
+<a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a><span class="w">        </span><span class="c1">// // Arrange</span>
+<a id="__codelineno-42-13" name="__codelineno-42-13" href="#__codelineno-42-13"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringWriter</span><span class="p">();</span><span class="w">  </span><span class="c1">// 3</span>
+<a id="__codelineno-42-14" name="__codelineno-42-14" href="#__codelineno-42-14"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">SetOut</span><span class="p">(</span><span class="n">writer</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4</span>
+<a id="__codelineno-42-15" name="__codelineno-42-15" href="#__codelineno-42-15"></a>
+<a id="__codelineno-42-16" name="__codelineno-42-16" href="#__codelineno-42-16"></a><span class="w">        </span><span class="c1">// Act</span>
+<a id="__codelineno-42-17" name="__codelineno-42-17" href="#__codelineno-42-17"></a><span class="w">        </span><span class="n">Program</span><span class="p">.</span><span class="n">Main</span><span class="p">();</span><span class="w">  </span><span class="c1">// 2</span>
+<a id="__codelineno-42-18" name="__codelineno-42-18" href="#__codelineno-42-18"></a>
+<a id="__codelineno-42-19" name="__codelineno-42-19" href="#__codelineno-42-19"></a><span class="w">        </span><span class="c1">// Assert</span>
+<a id="__codelineno-42-20" name="__codelineno-42-20" href="#__codelineno-42-20"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">writer</span><span class="p">.</span><span class="n">GetStringBuilder</span><span class="p">();</span>
+<a id="__codelineno-42-21" name="__codelineno-42-21" href="#__codelineno-42-21"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">Trim</span><span class="p">());</span><span class="w">  </span><span class="c1">// 5</span>
+<a id="__codelineno-42-22" name="__codelineno-42-22" href="#__codelineno-42-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-42-23" name="__codelineno-42-23" href="#__codelineno-42-23"></a><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>We're using the <code>HelloWorldApp</code> namespace we defined above.</li>
+<li>We're calling the <code>Program.Main()</code> method to test the code.</li>
+<li>We're creating a <code>StringWriter()</code> instance to which we will redirect the output
+   of the <code>Console</code> class.</li>
+<li>We're telling <code>Console</code> to redirect its output to the <code>StringWriter</code> instance
+   we created.</li>
+<li>We assert that the output of the program as captured by the <code>StringWriter</code> is the
+   same as the expected output.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>Let's modify our source code a little so that it's easier to test.</p>
+<div class="highlight"><span class="filename">hello/__init__.py</span><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># (1)!</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>    <span class="n">hello_world</span><span class="p">()</span>
+</code></pre></div>
+<ol>
+<li>This tells python to run the body under the condition only when the file is run
+   directly and not when the module (file) is imported in another module. See this
+   <a href="https://realpython.com/python-main-function/">article</a> for more information.</li>
+</ol>
+<p>Now we have a function that we can actually test.</p>
+<div class="highlight"><span class="filename">tests/test_hello.py</span><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="kn">from</span> <span class="nn">hello</span> <span class="kn">import</span> <span class="n">hello_world</span>  <span class="c1"># 1</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="k">def</span> <span class="nf">test_hello</span><span class="p">(</span><span class="n">capsys</span><span class="p">):</span>  <span class="c1"># 5</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>    <span class="n">hello_world</span><span class="p">()</span>  <span class="c1"># 2</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>    <span class="n">captured</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span>  <span class="c1"># 3</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>    <span class="k">assert</span> <span class="n">captured</span><span class="o">.</span><span class="n">out</span> <span class="o">==</span> <span class="s2">&quot;Hello, World!</span><span class="se">\n</span><span class="s2">&quot;</span>  <span class="c1"># 4</span>
+</code></pre></div>
+<ol>
+<li>We import the <code>hello_world</code> function from the <code>hello</code> module.</li>
+<li>We call the <code>hello_world</code> function.</li>
+<li>We use an object named <code>capsys</code> that is "magically" passed into our test function
+   to capture the stdout and stderr generated during the execution of the test.</li>
+<li>We assert that the stdout resulting from calling the <code>hello_world</code> function is
+   indeed "Hello, World!".</li>
+<li>We declare <code>capsys</code> as a parameter of our test function. This is called a
+   <code>fixture</code> in <code>pytest</code>. Pytest provides a set of predefined fixtures, <code>capsys</code>
+   being one of them. You use fixtures by defining them as parameters in your test
+   function. Pytest will take care of passing in the actual objects when running
+   the test. See pytest's <a href="https://docs.pytest.org/en/latest/explanation/fixtures.html">documentation</a>
+   for more details on fixtures.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">tests/test_hello.rs</span><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">process</span>::<span class="n">Command</span><span class="p">;</span><span class="w">  </span><span class="c1">// 1</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="cp">#[test]</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="k">fn</span> <span class="nf">hello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Command</span>::<span class="n">new</span><span class="p">(</span><span class="s">&quot;./target/debug/hello&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 2</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmd</span><span class="p">.</span><span class="n">output</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">  </span><span class="c1">// 3</span>
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from_utf8</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">stdout</span><span class="p">).</span><span class="n">unwrap</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Hello, world!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4</span>
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>We import a builtin struct called <code>Command</code> that willl let us run CLI commands
+   and capture the output from those commands.</li>
+<li>We run the executable that Cargo previously created for us when we ran the
+   <code>cargo run</code> command. Note that we need to hard code the path to the executable.
+   This test would have failed if we hadn't previously already generated the
+   executable.</li>
+<li>We get the output of running the command. The result of <code>cmd.output()</code> is an
+   <code>Result&lt;Output&gt;</code> type that may either contain the actual result or an error if
+   one is raised. We call tye <code>unwrap()</code> method on it because we don't expect it to
+   raise an error. If getting the output did indeed raise an error, rust would
+   panic at this point and exit the program, which would cause the test to fail.</li>
+<li>The <code>Output</code> struct has a field called <code>stdout</code> that contains the output written
+   to the STDOUT by our program. The type of this field is <code>Vec&lt;u8&gt;</code>. For now, it
+   is sufficient to know that we can convert that into a <code>String</code> type by calling
+   the <code>String::from_utf8</code> constructor. Note that this too returns a <code>Result</code> type
+   and we unwrap it as we did before.</li>
+</ol>
+</div>
+</div>
+</div>
+<p>We can execute the tests as before, and ensure that the test is passing. That's it for
+this chapter. In the next chapter, we'll build an <code>echo</code> clone. We'll improve some of
+our tooling to create good command line applications.</p>
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs Insiders
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7ce0e818.min.js"></script>
+      
+    
+  </body>
+</html>
