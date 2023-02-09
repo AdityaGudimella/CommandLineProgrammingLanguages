@@ -18,6 +18,6 @@ This book currently contains the following programming languages:
 
 I plan to add the following languages to this book in the future:
 
-- Javascript / Typescript
-- Go
-- C++ (maybe)
+- [Go](https://go.dev/)
+- [JavaScript](https://www.javascript.com/)
+- [C++](https://isocpp.org/) (maybe)

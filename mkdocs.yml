@@ -12,6 +12,7 @@ markdown_extensions:
 nav:
 - Home: index.md
 - Chapter 1 - Hello World: chapter_1.md
+- Chapter 2 - Echo: chapter_2.md
 plugins:
 - mkdocstrings
 site_name: Command-Line Programming Languages
@@ -36,3 +37,5 @@ theme:
     - content.tabs.link
     - content.code.copy
     - content.code.annotate
+watch:
+  - "mkdocs.yml"

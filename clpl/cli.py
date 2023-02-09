@@ -56,14 +56,21 @@ def install():
 
 @app.command()
 def serve(
-    install_deps: bool = typer.Option(False, "-i", "--install", help="Install dependencies first.")
+    install_deps: bool = typer.Option(
+        False, "-i", "--install", help="Install dependencies first."
+    ),
+    port: int = typer.Option(8000, "-p", "--port", help="Port to serve the docs on."),
 ):
     """Serve the docs."""
     if install_deps:
         install()
     context = Context()
     with context.cd(str(REPO_ROOT)):
-        context.run(f"mkdocs serve --config-file {MKDOCS_INSIDERS_CONFIG_FILE_NAME}")
+        context.run(
+            "mkdocs serve"
+            + f" --config-file {MKDOCS_INSIDERS_CONFIG_FILE_NAME}"
+            + f" --dev-addr localhost:{port}"
+        )
 
 
 @app.command()

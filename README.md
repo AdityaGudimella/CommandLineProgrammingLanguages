@@ -9,6 +9,7 @@ Learn various programming languages by building command-line applications.
 
 You can find the code for each chapter in the `code` directory. Each language has its
 own directory. Within each language directory, there is a directory for each chapter.
+You can also find a link to the code at the end of each chapter.
 
 ## The languages
 
