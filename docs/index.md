@@ -12,12 +12,12 @@ want to learn in the future. I'm going to use this site to document my progress.
 
 This book currently contains the following programming languages:
 
-- [Rust](https://www.rust-lang.org/)
-- [Python](https://www.python.org/)
 - [C#](https://dotnet.microsoft.com/languages/csharp)
+- [Go](https://go.dev/)
+- [Python](https://www.python.org/)
+- [Rust](https://www.rust-lang.org/)
 
 I plan to add the following languages to this book in the future:
 
-- [Go](https://go.dev/)
 - [JavaScript](https://www.javascript.com/)
 - [C++](https://isocpp.org/) (maybe)

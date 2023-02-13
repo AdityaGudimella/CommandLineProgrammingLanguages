@@ -14,8 +14,9 @@ You can also find a link to the code at the end of each chapter.
 ## The languages
 
 1. [C#](https://dotnet.microsoft.com/languages/csharp)
-2. [Python](https://www.python.org/)
-3. [Rust](https://www.rust-lang.org/)
+2. [Go](https://golang.org/)
+3. [Python](https://www.python.org/)
+4. [Rust](https://www.rust-lang.org/)
 
 ## References
 1. [Command-Line Rust](https://learning.oreilly.com/library/view/command-line-rust/9781098109424/)

@@ -41,6 +41,18 @@ project.
     dotnet new Console -o src/HelloWorldApp
     dotnet sln add src/HelloWorldApp/HelloWorldApp.csproj
     ```
+=== "Go"
+    Go does not have a package manager. We need to create the contents on our own. The
+    community does have some best practices for organizing Go projects. You can read
+    more about it [here](https://github.com/golang-standards/project-layout). We'll
+    stick to a flat directory structure though.
+
+    ```bash title="From parent dir of repo"
+    mkdir hello_world
+    cd hello_world
+    go mod init hello_world
+    touch main.go
+    ```
 === "Python"
     To create a new Python project, we use the `poetry` command. Poetry is _a_ Python
     package manager and build tool. I say it is "a" python package manager instead of
@@ -50,7 +62,6 @@ project.
     ```bash title="From parent dir of repo"
     poetry new hello_world
     ```
-
 === "Rust"
     To create a new Rust project, we use the `cargo` command. Cargo is the Rust package
     manager and build tool.
@@ -62,8 +73,8 @@ project.
 #### What just happened?
 
 When we create a new project, we are telling the package manager and build tool to
-create a new project with the name `hello`. The package manager and build tool will
-create a new directory with the name `hello` and create a new project in that
+create a new project with the name `hello_world`. The package manager and build tool
+will create a new directory with the name `hello_world` and create a new project in that
 directory.
 
 ### Directory structure
@@ -101,7 +112,15 @@ tree hello_world
     best practices followed by the `dotnet` community. See Scott Hanselman's
     [blog post](http://www.hanselman.com/blog/how-do-you-organize-your-code) on defining
     the directory structure for your projects.
+=== "Go"
 
+    ```bash title="Output"
+    hello_world
+    ├── go.mod
+    └── main.go
+
+    0 directories, 2 files
+    ```
 === "Python"
 
     ```bash title="Output"
@@ -154,6 +173,21 @@ dependencies, tool directives etc. Let's take a look at the configuration file c
     1. This tells the build tool that the project is an executable.
     2. The dotnet version shown here will depend on the dotnet version installed on your
        system.
+=== "Go"
+
+    ```toml title="go.mod"
+    module hello_world  # 1
+
+    go 1.20  # 2
+    ```
+
+    1. This is the name of module. This is the name that will be used to import this
+       module in other projects.
+    2. This is the minimum version of Go that this project requires.
+
+    The `go.mod` file may also contain a `require`, `replace` and / or `exclude`
+    directive. You can read more about it in the [Go modules reference](https://go.dev/doc/modules/gomod-ref).
+
 === "Python"
 
     ```toml title="pyproject.toml"
@@ -227,6 +261,39 @@ dependencies, tool directives etc. Let's take a look at the configuration file c
     In C# 9.0 and greater, you can take advantage of Top-Level Statements. This means
     you can omit the `Program` class and the `Main` method. You can read more about
     Top-Level Statements [here](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements).
+=== "Go"
+    The entry point to a go executable is the `main` function defined in the `main`
+    package. This function is the first function that is executed when the program is
+    run.
+
+    ```go title="hello_world/main.go"
+    package main  // 1
+
+    import (
+        "log"  // 3
+    )
+
+    func main() {  // 2
+        log.Println("Hello, World!")  // 4
+    }
+    ```
+
+    1. This tells go that this code is part of the `main` package. The `main` package
+       is special in go. It is the package that is executed when the program is run.
+    2. This is the `main` function. This is the first function that is executed when the
+       program is run. This function takes no arguments and returns no value. For now,
+       we'll leave the function body empty.
+    3. This is how we import packages in go. To import multiple packages in a single
+       statement, simply put each package on a new line.
+    4. This is the `Println` function. This function is part of the `log` package. This
+       function takes a variable number of arguments and prints them to the console.
+
+    Note that go uses implicit semi-colons. This means that you don't have to put a
+    semi-colon at the end of each statement. The compiler (lexer) will automatically
+    add a semi-colon at the end of each line. If you want to include multiple
+    statements on a single line, you can use a semi-colon to separate them. The same
+    holds for importing multiple packages in a single statement.
+
 === "Python"
     The entry point to a Python program is the file that is executed. Python doesn't
     require a `main` method or a `Program` class. Python will execute any code that is
@@ -277,6 +344,21 @@ repository.
     ```bash title="Output"
     Hello, World!
     ```
+=== "Go"
+
+    ```bash title="From repo root"
+    go run main.go
+    ```
+
+    This will compile and run the program. The output will be similar to this:
+
+    ```bash title="Output"
+    2023/02/13 16:01:13 Hello, World!
+    ```
+
+    Since we're using the `log.Println` function instead of the `fmt.Println` function,
+    the output will be prefixed with the date and time.  Your output may be different
+    depending on the date and time when you run the program.
 === "Python"
 
     ```bash title="From repo root"
@@ -330,6 +412,25 @@ tree hello_world
             │           ├── HelloWorldApp.pdb
             │           └── HelloWorldApp.runtimeconfig.json
             └── ...
+    ```
+=== "Go"
+
+    Note that `go run` will compile the code and run the executable but does not save
+    the executable in the working directory. If you want to save the executable, you
+    can use the `go build` command.
+
+    ```bash title="From repo root"
+    go build
+    ```
+
+    Go is a compiled and unmanaged language. The compiled code is a self-sufficient
+    executable and is run by the OS.
+
+    ```bash title="Output"
+    hello_world
+    ├── go.mod
+    ├── hello_world
+    └── main.go
     ```
 === "Python"
 
@@ -427,6 +528,27 @@ tree hello_world
     1. We see some additional project dependencies here, `xunit` being one of them.
 
     We will add tests to the `tests/hello/UnitTest1.cs` file.
+=== "Go"
+
+    Go has a built-in library called `testing` to run tests. We can use it in our project
+    to test our application. Let's create a new file called `main_test.go` in the root
+    of the repo. We will add our tests to this file.
+
+    ```bash title="From repo root"
+    touch main_test.go
+    ```
+
+    Our directory structure now looks like this:
+
+    ```bash title="tree"
+    hello_world
+    ├── go.mod
+    ├── hello_world
+    ├── main_test.go  # (1)!
+    └── main.go
+    ```
+
+    1. We will add our tests to this file.
 
 === "Python"
 
@@ -535,6 +657,24 @@ Let's add the actual tests now.
     4. The `[Fact]` attribute is used to mark it as a test method.
     5. The test method creates an assertion to check that `0 == 0`. We're starting
        simple here.
+=== "Go"
+
+    ```go title="main_test.go"
+    package main
+
+    import "testing"  // (1)!
+
+    func TestMain(t *testing.T) {  // 1
+        t.Log("Hello, World!")  // 2
+    }
+    ```
+
+    1. Since we're importing a single package, we can ignore the parantheses around
+       the package name.
+
+    1. We have created a function called `TestMain` which contains the actual test.
+    2. We have used the `t.Log` function to log a message to the console. We're
+    starting simple here.
 === "Python"
 
     ```python title="tests/test_hello.py"
@@ -586,6 +726,21 @@ Now that we have written our tests, let's run them.
     A total of 1 test files matched the specified pattern.
 
     Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: < 1 ms
+    ```
+=== "Go"
+
+    ```bash title="From repo root"
+    go test -v
+    ```
+
+    You should see the following lines as part of the output.
+
+    ```bash title="Output"
+    === RUN   TestMain
+    main_test.go:14: Hello, World!
+    --- PASS: TestMain (0.00s)
+    PASS
+    ok      hello_world     0.001s
     ```
 === "Python"
 
@@ -663,6 +818,43 @@ so that we ensure that the output of the application is indeed "Hello, World!"
        we created.
     5. We assert that the output of the program as captured by the `StringWriter` is the
        same as the expected output.
+=== "Go"
+
+    We used the `log` package instead of `fmt` to print the output. This is so that we
+    can capture the output in a variable and test it.
+
+    ```go title="main_test.go"
+    package main
+
+    import (
+        "bytes"
+        "log"
+        "strings"
+        "testing"
+    )
+
+    func TestMain(t *testing.T) {
+        var buf bytes.Buffer  // 2
+        log.SetOutput(&buf)  // 3
+        main()  // 1
+        got := buf.String()  // 4
+        want := "Hello, World!\n"
+        if strings.HasSuffix(got, want) == false {  // 5
+            t.Errorf("got %q want %q", got, want)  // 6
+        }
+    }
+    ```
+
+    1. We call the `main` function to test the code.
+    2. We create a `bytes.Buffer` instance to which we will redirect the output of the
+       `log` package.
+    3. We tell `log` to redirect its output to the `bytes.Buffer` instance we created.
+    4. We capture the output of the program as a string.
+    5. We assert that the output of the program as captured by the `bytes.Buffer` is the
+       same as the expected output.
+    6. We use the `t.Errorf` function to fail the test if the output is not the same as
+       the expected output.
+
 === "Python"
 
     Let's modify our source code a little so that it's easier to test.
@@ -755,6 +947,8 @@ You can find the code for this chapter here:
 
 === "C#"
     [Chapter 1](https://github.com/AdityaGudimella/CommandLineProgrammingLanguages/blob/main/code/csharp/hello_world)
+=== "Go"
+    [Chapter 1](https://github.com/AdityaGudimella/CommandLineProgrammingLanguages/blob/main/code/go/hello_world)
 === "Python"
     [Chapter 1](https://github.com/AdityaGudimella/CommandLineProgrammingLanguages/blob/main/code/python/hello_world)
 === "Rust"
